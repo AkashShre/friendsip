@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>"
+    />
+        <title>☆ Friendship Day Special ☆</title>
+      <style>
+        *{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+html,body{
+  height:100%;
+  background:linear-gradient(top left,#77f,#7bf);
+  background:-webkit-linear-gradient(top left,#77f,#7bf);
+}
+html{
+    position:fixed;
+    overflow:auto;
+    width:100%;
+}
+body{
+    width:100%;
+    overflow-x:hidden;
+    position:relative;
+  margin:auto;
+}
+@media screen and (min-width:650px){
+    body{
+        width:650px;
+    }
+}
+#balloon{
+    width:180px;
+    height:210px;
+    position:absolute;
+    border-radius:48% 48% 50% 50%;
+    background:#f77;
+    top:-40%;
+    left:50%;
+    box-shadow:inset 15px 5px #f88;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    animation:goup 2s linear .5s;
+    -webkit-animation:goup 2s linear .5s;
+}
+@keyframes goup{
+    from{top:20%;left:30%;}
+}
+@-webkit-keyframes goup{
+    from{top:20%;left:30%;}
+}
+#balloon:before{
+    content:"";
+    width:0;
+    height:0;
+    border:15px #f77 solid;
+    border-bottom:none;
+    border-radius:42%;
+    position:absolute;
+    left:75px;
+    bottom:-15px;
+}
+#balloon:after{
+    content:"";
+    width:85%;
+    position:absolute;
+    height:85%;
+    left:7%;
+    top:10%;
+    border-radius:48% 48% 50% 50%;
+    box-shadow:inset 0 50px #f77,inset -4px 0 white;
+}
+#string{
+    width:50px;
+    height:100px;
+    border-left:4px white solid;
+    position:absolute;
+    border-radius:50%;
+    left:70px;
+    top:99%;
+}
+#frst{
+    width:100%;
+    height:100%;
+    display:block;
+    position:absolute;
+    z-index:5;
+    animation:com .5s;
+    -webkit-animation:com .5s;
+}
+#main{
+    width:100%;
+    height:100%;
+    display:none;
+    position:absolute;
+    z-index:5;
+    animation:com2 .5s;
+    -webkit-animation:com2 .5s;
+}
+.out{
+    width:65px;
+    height:65px;
+    position:absolute;
+    left:68%;
+    top:300px;
+    transform:rotate(-10deg);
+    -webkit-transform:rotate(-10deg);
+}
+.out>#niddle{
+    width:0;
+    height:0
+    position:absolute;
+    z-index:6;
+    margin:auto;
+    margin-top:-150px;
+    border:4px transparent solid;
+    border-bottom:170px silver solid;
+}
+#shoot{
+    width:100%;
+    height:100%;
+    background:rgba(255,150,150,.7);
+    position:absolute;
+    display:flex;
+    z-index:7;
+    color:white;
+    box-shadow:0 0 8px #444;
+    display:-webkit-box;
+    align-items:center;
+    -webkit-box-align:center;
+    justify-content:center;
+    -webkit-box-pack:center;
+    border-radius:50%;
+    font-size:15px;
+}
+.shoot{
+    animation:shoot 1.4s linear;
+    -webkit-animation:shoot 1.4s linear;
+}
+#bottom{
+    width:94%;
+    height:60%;
+    background:rgba(255,50,50,.15);
+    position:relative;
+    border-radius:0 0 20px 20px;
+    margin:auto;
+    box-shadow:0 5px 60px #333;
+    display:none;
+}
+#msg{
+    width:100%;
+    padding:10px;
+    position:absolute;
+    text-align:center;
+    color:white;
+    left:200%;
+    top:50%;
+    z-index:10;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    background:linear-gradient(left,rgba(0,0,0,.7),rgba(0,0,0,.6),transparent);
+    background:-webkit-linear-gradient(left,rgba(0,0,0,.7),rgba(0,0,0,.6),transparent);
+    animation:come 3s linear .5s;
+    -webkit-animation:come 3s linear .5s;
+}
+@keyframes come{
+    25%{left:0;}
+    75%{left:0;}
+    100%{left:-100%;}
+}
+@-webkit-keyframes come{
+    25%{left:0;}
+    75%{left:0;}
+    100%{left:-100%;}
+}
+#wish{
+    width:75%;
+    height:67.5vw;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    animation:fall 4s linear 1,flip 1.5s linear 2, shake 4s ease-in infinite 4s;
+    -webkit-animation:fall 4s linear 1,flip 1.5s linear 2, shake 4s ease-in infinite 4s;
+}
+button[onclick="next()"]{
+    background-color:rgba(255,170,170,.6);
+    padding:9px;
+    color:white;
+    opacity:0;
+    cursor:pointer;
+    border:none;
+    font-size:17px;
+    box-shadow:0 0 10px #333;
+    border-radius:6px;
+    position:absolute;
+    bottom:5%;
+    left:50%;
+    transition:opacity .4s;
+    -webkit-transition:opacity .4s;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+}
+audio {
+    display:none;
+}
+#wish>img{
+    width:100%;
+    height:100%;
+    box-shadow:0 0 10px #333;
+    border-radius:50%;
+}
+.thanks{
+    width:80%;
+    position:absolute;
+    top:65%;
+    left:50%;
+    opacity:0;
+    color:#fff;
+    transition:opacity .5s;
+    -webkit-transition:opacity .5s;
+    border-radius:10px;
+    background:rgba(255,50,50,.15);
+    text-align:center;
+    padding:20px 10px;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    box-shadow:0 0 10px #444;
+}
+@keyframes com{
+    from{left:-100%;}
+    to{left:0;}
+}
+@keyframes com2{
+    from{left:100%;}
+    to{left:0;}
+}
+@-webkit-keyframes com{
+    from{left:-100%;}
+    to{left:0;}
+}
+@-webkit-keyframes com2{
+    from{left:100%;}
+    to{left:0;}
+}
+@keyframes flip{
+    to{
+        transform:translate(-50%,-50%)  rotateX(180deg);
+    }
+}
+@-webkit-keyframes flip{
+    to{
+        -webkit-transform:translate(-50%,-50%)  rotateX(180deg);
+    }
+}
+@keyframes fall{
+    0%{
+        top:-20%;
+        width:14%;
+        height:7.5vw;
+    }
+    75%{
+        top:50%;
+        width:14%;
+        height:7.5vw;
+    }
+}
+@keyframes shoot{
+    100%{
+        margin-top:-550px;
+    }
+}
+@-webkit-keyframes fall{
+    0%{
+        top:-20%;
+        width:14%;
+        height:14%;/*vw*/
+    }
+    75%{
+        top:50%;
+        width:14%;
+        height:14%;/*vw*/
+    }
+}
+@-webkit-keyframes shoot{
+    100%{
+        margin-top:-550px;
+    }
+}
+#main>h2{
+    color:rgba(255,150,150,.9);
+    width:90%;
+    text-align:center;
+    margin:8px auto;
+    background:linear-gradient(top left,rgba(250,150,150,.3),rgba(0,0,0,.3),rgba(250,150,150,.3));
+    background:-webkit-linear-gradient(top left,rgba(250,150,150,.3),rgba(0,0,0,.3),rgba(250,150,150,.3));
+    padding:10px;
+    border-radius:10px;
+    font-size:22px;
+}
+#main>img{
+    width:80%;
+    display:block;
+    margin:50px auto;
+    border-radius:20px;
+    opacity:.9;
+    box-shadow: 0 0 20px white;
+}
+.last-line{
+    text-align:center;
+    color:rgba(150,250,250,.9);
+    font-size:21px;
+    font-weight:bold;
+}
+.quote,.my-words{
+    width:85%;
+    padding:20px;
+    color:#cdf;
+    border-radius:10px;
+    background:linear-gradient(top left,rgba(250,150,150,.3),rgba(0,0,0,.3),rgba(250,150,150,.3));
+    background:-webkit-linear-gradient(top left,rgba(255,150,150,.3),rgba(0,0,0,.3),rgba(255,150,150,.3));
+    margin:20px auto 15px;
+}
+.quote>q,.my-words>q{
+    text-align:center;
+    display:block;
+    width:100%;
+}
+#back{
+    display:inline-block;
+    color:white;
+    font-size:22px;
+    position:absolute;
+    padding:10px 10px 10px 0;
+}
+cite{
+    text-align:right;
+    width:100%;
+    display:block;
+}
+a{
+    display:block;
+    width:90%;
+    margin:5px auto;
+    padding:12px;
+    font-weight:bold;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    border-radius:10px;
+    background:rgba(250,155,150,.2);
+}
+table{
+    color:rgba(255,150,150,.7);
+    width:110%;
+    height:110%;
+    position:fixed;
+    text-align:center;
+    top:-5%;
+    left:-5%;
+    text-shadow:0 0 2px pink;
+    z-index:3;
+    font-weight:bold;
+}
+.td1{
+    animation:ani 2s ease-in-out infinite;
+    -webkit-animation:ani 2s ease-in-out infinite;
+}
+.td2{
+    animation:ani 2s ease-in-out 1s infinite;
+    -webkit-animation:ani 2s ease-in-out 1s infinite;
+}
+@keyframes ani{
+    50%{
+        transform:scale(2.5);
+    }
+    100%{
+        transform:scale(1,1);
+    }
+}
+@-webkit-keyframes ani{
+    50%{
+        -webkit-transform:scale(2.5);
+    }
+    100%{
+        -webkit-transform:scale(1);
+    }
+}
+@-webkit-keyframes shake{
+    15%{
+        -webkit-transform:translate(-50%,-44%);
+    }
+    45%{
+        -webkit-transform:translate(-50%,-56%);
+    }
+    60%{-webkit-transform:translate(-50%,-50%);}
+}
+@keyframes shake{
+    15%{transform:translate(-50%,-44%);
+    }
+    45%{transform:translate(-50%,-56%);
+    }
+    60%{transform:translate(-50%,-50%);}
+}
+      </style>
+    </head>
+
+    <body>
+    <!--Animated Heart Background---->
+        <table>
+            <tr><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+            <tr><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+            <tr><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+            <tr><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+            <tr><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+            <tr><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+            <tr><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td><td></td><td>♡</td></tr>
+        </table>
+    <!--First Page----->
+        <div id="frst">
+            <div id="bottom">
+                <div id="wish"><img src=" https://i.pinimg.com/236x/87/0e/c7/870ec7150b7174d63b0b5b77905dac81--images-for-friendship-day-friendship-day-wallpaper.jpg "></div>
+            </div>
+            <div id="msg">Click the Shoot...</div>
+            <div class="thanks">Thank you so much for Coming in my Life..............)<br>From ♡AKASH♡</div>
+            <button onclick="next()">Go Ahead</button>
+            <div id="balloon">
+                <div id="string"></div>
+            </div>
+            <div class="out">
+                <div id="shoot">SHOOT</div>
+                <div id="niddle"></div>
+            </div>
+        </div>
+    <!----2nd and Main Page----->
+        <div id="main">
+            <b onclick="back()" id="back">《</b>
+            <h2 class='head'>☆ Happy Friendship Day From your dear Friend <br> AKASH SHRESTHA!☆</h2>
+            <p class="quote">
+                <q>A friend is someone with whom you dare to be yourself.</q>
+                <cite>~Frank Crane</cite>
+            </p>
+            <p class="my-words">
+                "It is said that there is no sorry and no thanks in friendship. Maybe because if it is not so, then there will not be any limit of 'Sorry and Thanks' among Friends."
+            </p>
+            <p class="my-words">
+                <q> A Friend helps his friends without expecting anything in return.
+                And a friend forgives before getting sorry from his friend.</q>
+                <br>In one sentence:-<br><br>
+                <q>There is no expectations from each other among Friends.<br>There is only care and love for each other among friends.</q>
+            </p>
+             <img src=" https://i.pinimg.com/236x/04/36/74/043674cdf395ee31cad2fb3189faf600--true-friend-quotes-true-friends.jpg ">
+              <img src=" https://i.pinimg.com/236x/23/42/0d/23420df7f79147d665bf4705a1a2aeb2--happy-friendship-day-friend-quotes.jpg ">
+            <img src=" https://i.pinimg.com/236x/22/4e/3a/224e3a92fb2c7fb3ef4f198b8cb348a9.jpg ">
+            <p class="my-words"><q>If there is no friendship in a relationship, then the relation can not be long lasting.</q>
+           <br> <q>Friendship is the base of all relationships.</p>
+            <p class="last-line"></p>
+            <a href="https://www.sololearn.com/Profile/19277040/?ref=app" >Created by AKASH SHRESTHA! </a>
+        </div>
+<!---Music----->
+        <audio src=" https://dl.dropbox.com/s/th3r16s8nxiifls/aud-20210801-wa0001.mp3" controls></audio>
+        <audio src="https://dl.dropbox.com/s/dl0z3rtmu807x51/tera%20yaar%20hoon%20main%20%28sonu%20ke%20titu%20ki%20sweety%29%20320%20kbps.mp3" controls loop></audio>
+        <audio src="https://dl.dropbox.com/s/hjra8fpc5anjbf5/y2mate.com%20-%20ed%20sheeran%20%20shape%20of%20you%20%20instrumental%20official%20%281%29.mp3" controls loop></audio>
+        <script type="text/javascript">
+//----JAVASCRIPT--------
+            var s, last_line=document.getElementsByClassName("last-line")[0],main=document.getElementById("main"),thanks=document.getElementsByClassName("thanks")[0],button=document.getElementsByTagName("button"),audio=document.getElementsByTagName("audio"),bottom=document.getElementById("bottom"), balloon=document.getElementById("balloon"),shoot=document.getElementById("shoot"), niddle=document.getElementById("niddle"), tr=document.getElementsByTagName("tr");
+            setTimeout(function(){
+                document.getElementById("msg").style.display ="none";
+            },3500)
+            for(var t=0;t<tr.length;t++){
+                if(t%2==0){
+                    for(var i =0;i<tr[t].childNodes.length;i+=4){
+                        tr[t].childNodes[i].classList.add("td1");
+                        tr[t].childNodes[i+2].classList.add("td2");
+                    }
+                }
+                else{
+                    for(var p=1;p<tr[t].childNodes.length;p+=4){
+                        tr[t].childNodes[p].classList.add("td2");
+                        if(p+2<tr[t].childNodes.length){
+                            tr[t].childNodes[p+2].classList.add("td1");
+                        }
+                    }
+                }
+            }
+            shoot.onclick=function(){
+                niddle.classList.add("shoot");
+                setTimeout(function(){
+                    audio[0].play();
+                    balloon.style.display="none";
+                },700)
+                setTimeout(function(){
+                    document.getElementsByClassName("out")[0].style.display="none";
+                    bottom.style.display="block";
+                    button[0].style.opacity="1";
+                    thanks.style.opacity="1";
+                },1400)
+            }
+            function next(){
+               s= prompt("If you can understand Hindi, Enter 1, else enter 2.\n\nAfter submitting this, click anywhere to play music.....)");
+               if(s=="1"){
+                last_line.innerHTML="Tera Yaar Hoon Main!<br>..........)";
+            }
+            else{
+                last_line.innerHTML="I Am Your Friend!<br>.........)";
+            }
+              window.onclick=function(){
+                  audio[s].play();
+              }
+               window.onmouseover=function(){
+                   audio[s].play();
+               }
+                document.getElementById("frst").style.display="none";
+                document.body.style.background="linear-gradient(30deg,#003,#000,#003)";
+                document.body.style.background="-webkit-linear-gradient(30deg,#003,#000,#003)";
+                main.style.display="block";
+            }
+            function back(){
+                main.style.display="none";
+                audio[s].pause();
+                document.getElementById("frst").style.display="block";
+                document.body.style.background="linear-gradient(top left,#77f,#7bf)";
+                document.body.style.background="-webkit-linear-gradient(top left,#77f,#7bf)";
+            }
+        </script>
+    </body>
+</html>
